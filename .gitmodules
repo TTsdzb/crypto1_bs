@@ -1,0 +1,6 @@
+[submodule "craptev1-v1.1"]
+	path = craptev1-v1.1
+	url = https://github.com/vk496/craptev1.git
+[submodule "crapto1-v3.3"]
+	path = crapto1-v3.3
+	url = https://github.com/Tilka/crapto1.git

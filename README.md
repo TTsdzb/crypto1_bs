@@ -1,11 +1,14 @@
-Bitsliced Crypto-1 brute-forcer
-===============================
+usage:
+
+```
+git clone --recurse-submodules https://github.com/TTsdzb/crypto1_bs.git
+```
+
+# Bitsliced Crypto-1 brute-forcer
 
 A pure C(99) implementation of the [Crypto-1 cipher](https://en.wikipedia.org/wiki/Crypto-1) using the method of [bitslicing](https://en.wikipedia.org/wiki/Bit_slicing), which uses GNU vector extensions to be portable across SSE/AVX/AVX2 supporting architectures while offering the highest amount of possible parallelism.
 
-
-Background
-----------
+## Background
 
 I wrote this as a patch for [piwi's imlementation](https://github.com/pwpiwi/proxmark3/tree/hard_nested/) of the research documented in [Ciphertext-only cryptanalysis on hardened Mifare Classic cards](http://www.cs.ru.nl/~rverdult/Ciphertext-only_Cryptanalysis_on_Hardened_Mifare_Classic_Cards-CCS_2015.pdf) after reading (most of) the paper, while it was still under [active development](http://www.proxmark.org/forum/viewtopic.php?id=2120).
 
@@ -20,8 +23,7 @@ My original patch is included for completeness as `pwpiwi_proxmark3_hard_nested.
 Even later still, this code actually got merged into the upstream [Proxmark3 codebase](https://github.com/Proxmark/proxmark3)! More importantly, it was included as part of an entirely new variation on the attack by [@pwpiwi](https://github.com/pwpiwi/), which requires fewer nonces and achieves a better reduction of potential states, while also improving the brute-forcing phase, ending up as another order of magnitude faster in practice.
 This improved solution is also usable with a branch of [mfoc](https://github.com/vk496/mfoc/tree/hardnested) by [@vk496](https://github.com/vk496).
 
-Tools
------
+## Tools
 
 ~~The following tools are only available for / tested on 64-bit Linux.~~
 Support for 32-bit and 64-bit machines was tested on various Intel/ARM based Linux platforms.
@@ -47,15 +49,11 @@ I have included a conversion of the test file `0xcafec0de.txt` included in the C
 
     $ ./libnfc_crypto1_crack 000000000000 0 A 4 A
 
-
-Acknowledgements
-----------------
+## Acknowledgements
 
 Special thanks to Carlo Meijer, Roel Verdult, piwi and bla.
 
-
-License
--------
+## License
 
 All the code in this repository is made available under the MIT license, except for the files `pwpiwi_proxmark3_hard_nested.patch` and `libnfc_crypto1_crack.c`, which are GPLv2 due to deriving from respectively Proxmark3 and MFOC.
 
@@ -78,4 +76,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-
